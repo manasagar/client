@@ -1,0 +1,9 @@
+POST http://localhost:3000/api/auth/usercreate
+content-type: application/json
+
+{
+    "name": manas,
+    "email":death@gmail.com,
+    "age": 19,
+    "password": 12345675
+}

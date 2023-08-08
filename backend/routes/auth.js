@@ -14,7 +14,7 @@ router.post('/usercreate',[
 
 const errors = validationResult(req);
 if(!errors.isEmpty()){
-    return res.send("error");
+    return res.json(req.body);
 }
 
 let user=User(req.body)

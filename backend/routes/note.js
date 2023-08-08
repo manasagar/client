@@ -32,9 +32,11 @@ if(!errors.isEmpty()){
 }const note=new Note({
     'user':req.user.id,
     'title':req.body.title,
-    'description':req.body.title,
+    'description':req.body.description,
 })
+console.log(note)
 const savednote=await note.save();
+
 res.json(savednote);
     }catch(error){
         console.error(error.message)
