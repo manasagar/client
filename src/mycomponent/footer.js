@@ -2,7 +2,7 @@ import React from "react";
 export default function Footer(){
     let x={
         position:"relative",
-        top:"100vh",
+        top:"85vh",
         width:"100%"
     }
     return(
