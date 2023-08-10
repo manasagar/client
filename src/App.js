@@ -17,10 +17,12 @@ function App() {
     <div>
     <NoteState>
     <Router>
+    <Header title="To do list" search={false}/>
+    <div className='container'>
     <Routes>
     <Route exact path="/about" element={
       <div>
-         <Header title="To do list" search={false}/>
+        
         <ABOUT/>
        </div>
     }
@@ -31,16 +33,17 @@ function App() {
     <Route exact path="/" element={
       
         <div>
-        <Header title="To do list" search={false}/>
+        
      <Home/>
-     <Footer/>
+     
         </div>
       
       }/>
       
-   
+      
   </Routes>
-
+  </div>
+  <Footer/>
      </Router>
      </NoteState>
   </div>
