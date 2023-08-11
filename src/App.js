@@ -5,7 +5,7 @@ import Header from './mycomponent/header';
 import Footer  from './mycomponent/footer';
 import NoteState from './hooks/notes/noteState';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-
+import Alert from './mycomponent/alert';
 
 
 function App() {
@@ -18,6 +18,7 @@ function App() {
     <NoteState>
     <Router>
     <Header title="To do list" search={false}/>
+  <Alert alert="No errors enjoy"/>
     <div className='container'>
     <Routes>
     <Route exact path="/about" element={
@@ -33,8 +34,7 @@ function App() {
     <Route exact path="/" element={
       
         <div>
-        
-     <Home/>
+           <Home/>
      
         </div>
       
