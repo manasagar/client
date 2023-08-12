@@ -1,16 +1,21 @@
-import React,{useEffect} from "react";
-import { Link ,useLocation} from "react-router-dom";
+import React from "react";
+import { Link,useLocation, useNavigate } from "react-router-dom";
 export default function Header(props){
-  let location =useLocation();
-  useEffect(()=>{
-console.log(location)
-  },[location])
+let location =useLocation();
+//   useEffect(()=>{
+// console.log(location)
+//   },[location])
+let navigation=useNavigate()
+const handlelogout=()=>{
+  localStorage.removeItem('token')
+navigation('/login')
+}
     return(
         <div>
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
     
     <div className="container-fluid">
-      <a className="navbar-brand" >{props.title}</a>
+      <span href="#" className="navbar-brand" >iNotebook</span>
       <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
       </button>
@@ -22,23 +27,13 @@ console.log(location)
           <li className="nav-item">
             <Link className={`nav-link ${location.pathname==="/about"?`active`:""}`} to="/about">ABOUT</Link>
           </li>
-          <li className="nav-item dropdown">
-            <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Dropdown
-            </a>
-            <ul className="dropdown-menu">
-              <li><a className="dropdown-item" href="#">Action</a></li>
-              <li><a className="dropdown-item" href="#">Another action</a></li>
-              
-              <li><a className="dropdown-item" href="#">Something else here</a></li>
-            </ul>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link disabled">Disabled</a>
-          </li>
+         
+         
         </ul>
-        <button className="btn btn-primary btn-color btn-bg-color btn-sm col-xs-2 margin-left">sign-in</button>
-        <button className="btn btn-sm btn-success">login</button>
+        {!localStorage.getItem('token')?<div>
+         <Link className="btn btn-primary mx-2" to="/signup" role="button">sign-up</Link>
+        <Link className="btn  btn-success mx-2" to="/login" role="button">login</Link>:""
+        </div>:<button className="btn btn-primary mx-2" onClick={handlelogout}> logout </button>}
        {props.search?
          <form className="d-flex" role="search">
           <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>

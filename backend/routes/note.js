@@ -22,16 +22,17 @@ router.post('/createnote',fetchuser,[
     const errors = validationResult(req);
     try{
 
-    
+    console.log(req.body)
 if(!errors.isEmpty()){
-    return res.status(400).json({errors:error.array()});
+    return res.status(400).json({errors:errors.array()});
     
-}const note=new Note({
+}
+const note=new Note({
     'user':req.user.id,
     'title':req.body.title,
     'description':req.body.description,
 })
-console.log(note)
+//console.log(note)
 const savednote=await note.save();
 
 res.json(savednote);
