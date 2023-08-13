@@ -13,14 +13,14 @@ const [curNote,setNote]=useState({_id:"",etitle:"",edescription:""})
 let navigation=useNavigate()
    useEffect(()=>{
     if(localStorage.getItem('token')){
-        
+     // 5>4?console.log("ty"):console.log("vi")
     getnotes()
 }
 else{
 navigation('/login')
 }
 return
-   },[])
+   },[])// eslint-disable-line react-hooks/exhaustive-deps
    const ref=useRef(null)
    const refclose=useRef(null)
    const updateNote=(currentNote)=>{
@@ -39,8 +39,8 @@ return
   
   //console.log(Note)
   }
+ 
     return(
-       
       
         <div>
         

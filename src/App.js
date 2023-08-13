@@ -35,10 +35,12 @@ function App() {
     
     <Route exact path="/" element={
       
-        <div>
+      
+      
+
            <Home/>
      
-        </div>
+        
       
       }/>
       
